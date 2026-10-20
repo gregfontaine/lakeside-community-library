@@ -15,14 +15,17 @@ leaves the student's chat; no real data, no real product, no real site.
 
 | File | Purpose |
 |------|---------|
-| `index.html` | The "poisoned" page — a fake library FAQ with hidden instructions for the AI |
+| `index.html` | The "poisoned" home page — a realistic library site with hidden instructions for the AI |
+| `access.html`, `services.html`, `contact.html` | Extra pages so the site looks like a normal multi-page website |
+| `style.css` | Shared styles and top navigation |
+| `images/hero.png` | Lakefront banner on the home page |
 | `HANDOUT.md` | One-page instructions to give students |
 | `README.md` | This file — how it works, how to run it, how to debrief |
 | `_config.yml` | Minimal GitHub Pages config |
 
-The page carries the **same harmless payload three ways** so you can demo each:
+The **home page** carries the **same harmless payload three ways** so you can demo each:
 
-1. **Overt** — a visible yellow "note for AI assistants" box.
+1. **White-on-white text** — a note styled as white text on a white background. It renders as blank space to a human, but the text is still selectable and is read by an assistant.
 2. **HTML comment** — never rendered, but present in the raw HTML an assistant fetches.
 3. **Visually-hidden span** — CSS-clipped so a human can't see it, but it's in the page's text.
 
@@ -48,17 +51,20 @@ When it works, the giveaway is instant and funny, which makes the debrief easy.
 
 That URL is what you give students.
 
-> Tip: keep the overt yellow box for a first, gentle run so the class can see the
-> instruction. For the "aha" moment, comment out the yellow box and rely only on
-> the invisible carriers — the attack still works even though the page looks clean.
+> Tip: the page already looks like an ordinary library site — nothing visible hints
+> at the injection. For a first, gentle run you can temporarily reveal the note by
+> changing its `color`/`background` in `style.css` (`.silent-note`) so the class sees
+> the instruction, then set it back to white-on-white for the real "aha" run.
 
 ---
 
 ## Running it in class
 
-Give students the URL and one of the tasks from `HANDOUT.md`, for example:
+Give students the URL (the home page) and one of the tasks from `HANDOUT.md`, for example:
 
 > "Using this library page, tell me the Saturday opening hours."
+
+The hidden payload lives on the **home page**, so point students there.
 
 How they feed the page to their assistant depends on the tool:
 
