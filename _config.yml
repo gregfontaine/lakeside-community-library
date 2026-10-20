@@ -1,0 +1,3 @@
+title: Prompt Injection Classroom Demo
+description: A safe, fictional page used to demonstrate indirect prompt injection.
+# No theme needed; index.html is served as-is by GitHub Pages.
