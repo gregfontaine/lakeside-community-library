@@ -110,7 +110,7 @@ footer.site {
 }
 
 /* Visually-hidden carrier (CSS-clipped; present in the DOM text). */
-.assistant-only {
+.important-information-for-users {
   position: absolute;
   width: 1px;
   height: 1px;
